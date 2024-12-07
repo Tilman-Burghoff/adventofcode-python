@@ -7,7 +7,7 @@ def is_solvalble(terms, solution):
         new_solution = set()
         while partial_solution:
             sol = partial_solution.pop()
-            for op in (add, mul):
+            for op in (add, mul, lambda sol, term: int(f"{sol}{term}")):
                 new_solution.add(op(sol, term))
         partial_solution = new_solution
     return solution in partial_solution
